@@ -19,7 +19,7 @@ jobs:
           cache: 'npm'
 
       - name: lint
-        
+        working-directory: ${{ env.working-directory }}        
         run: yarn lint      
 
   tsc:
@@ -37,6 +37,7 @@ jobs:
           cache: 'npm'
 
       - name: tsc
+        working-directory: ${{ env.working-directory }}        
         run: yarn tsc      
         
   build:
@@ -54,4 +55,5 @@ jobs:
           cache: 'npm'
 
       - name: build
+        working-directory: ${{ env.working-directory }}        
         run: yarn build
