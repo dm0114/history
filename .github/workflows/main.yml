@@ -6,6 +6,8 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./frontend
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -17,11 +19,13 @@ jobs:
           cache: 'npm'
 
       - name: lint
-        working-directory: frontend
+        
         run: yarn lint      
 
   tsc:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./frontend
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -33,11 +37,12 @@ jobs:
           cache: 'npm'
 
       - name: tsc
-        working-directory: frontend
         run: yarn tsc      
         
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./frontend
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -49,5 +54,4 @@ jobs:
           cache: 'npm'
 
       - name: build
-        working-directory: frontend
         run: yarn build
