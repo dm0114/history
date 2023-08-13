@@ -15,7 +15,7 @@ jobs:
       - name: setup node        
         uses: actions/setup-node@main        
         with:
-          cache-dependency-path: ${{ env.working-directory }}/yarn.lock
+          cache-dependency-path: '**/yarn.lock'
           node-version: 18
           cache: 'yarn'
 
@@ -34,7 +34,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@main
         with:
-          cache-dependency-path: ${{ env.working-directory }}/yarn.lock
+          cache-dependency-path: '**/yarn.lock'
           node-version: 18
           cache: 'yarn'
 
@@ -53,7 +53,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@main
         with:
-          cache-dependency-path: ${{ env.working-directory }}/yarn.lock
+          cache-dependency-path: '**/yarn.lock'
           node-version: 18
           cache: 'yarn'
 
