@@ -20,6 +20,7 @@ jobs:
           cache: 'yarn'
 
       - name: ci
+        working-directory: ${{ env.working-directory }}        
         run: yarn install --immutable --immutable-cache --check-cache    
 
       - name: lint
@@ -42,6 +43,7 @@ jobs:
           cache: 'yarn'
 
       - name: ci
+        working-directory: ${{ env.working-directory }}        
         run: yarn install --immutable --immutable-cache --check-cache        
 
       - name: tsc
@@ -64,6 +66,7 @@ jobs:
           cache: 'yarn'
 
       - name: ci
+        working-directory: ${{ env.working-directory }}        
         run: yarn install --immutable --immutable-cache --check-cache    
 
       - name: build
