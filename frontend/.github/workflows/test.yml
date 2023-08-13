@@ -1,0 +1,50 @@
+name: test
+on:
+  push:
+    branches: ['**']
+    tags-ignore: ['**']
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+
+      - name: setup node
+        uses: actions/setup-node@main
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: lint
+        run: yarn lint      
+
+  tsc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+
+      - name: setup node
+        uses: actions/setup-node@main
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: tsc
+        run: yarn tsc      
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+
+      - name: setup node
+        uses: actions/setup-node@main
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: build
+        run: yarn build
