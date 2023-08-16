@@ -5,9 +5,7 @@ on:
     tags-ignore: ['**']
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    env:
-      working-directory: ./frontend
+    runs-on: ubuntu-latest    
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -19,12 +17,10 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-      - name: ci
-        working-directory: ${{ env.working-directory }}        
+      - name: ci        
         run: yarn install --immutable --immutable-cache --check-cache    
 
-      - name: lint
-        working-directory: ${{ env.working-directory }}        
+      - name: lint        
         run: yarn lint      
 
   tsc:
@@ -42,12 +38,10 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-      - name: ci
-        working-directory: ${{ env.working-directory }}        
+      - name: ci        
         run: yarn install --immutable --immutable-cache --check-cache        
 
-      - name: tsc
-        working-directory: ${{ env.working-directory }}        
+      - name: tsc        
         run: yarn tsc      
         
   build:
@@ -65,10 +59,8 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-      - name: ci
-        working-directory: ${{ env.working-directory }}        
+      - name: ci        
         run: yarn install --immutable --immutable-cache --check-cache    
 
-      - name: build
-        working-directory: ${{ env.working-directory }}        
+      - name: build        
         run: yarn build
